@@ -1,0 +1,11 @@
+.container {
+    @include container($width: 120rem, $padding: 0 2rem);
+
+    @include media(get-bp(desktop)) {
+        padding: 0 3rem;
+    }
+}
+
+.container--content {
+    @include container($width: 100rem, $padding: 0);
+}

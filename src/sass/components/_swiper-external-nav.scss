@@ -1,0 +1,23 @@
+.swiper-external-nav {
+    position: relative;
+    padding: 0 3rem;
+    width: 100%;
+
+    .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        left: 0;
+    }
+
+    .swiper-wrapper-buttons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}

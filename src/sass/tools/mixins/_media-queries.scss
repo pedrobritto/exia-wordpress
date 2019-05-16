@@ -1,0 +1,155 @@
+////
+/// @group media queries
+////
+
+/// Mixin padrão para gerenciamento de media queries.
+///
+/// @param {String} $width Tamanho do breakpoint em `px`
+/// @param {String} $type `(min|max)` Tipo do breakpoint
+///
+/// @link https://engageinteractive.co.uk/blog/top-10-scss-mixins
+@mixin media($width, $type: "min") {
+    @if $type == "max" {
+        $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+        @content;
+    }
+}
+
+/// Mixin padrão para gerenciamento de media queries com tamanho máximo e mínimo.
+///
+/// @param {String} $start-width Resolução do limite inferior da media query
+/// @param {String} $end-width Resolução do limite superior da media query
+///
+/// @author Pedro Britto
+@mixin media-range($start-width, $end-width) {
+    @media only screen and (min-width: $start-width) and (max-width: $end-width - 1) {
+        @content;
+    }
+}
+
+// @link https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+@mixin media-phone-only {
+    @media (max-width: get-bp(phone)) {
+        @content;
+    }
+}
+
+// mixins: and up
+
+@mixin media-tablet-portrait-up {
+    @media (min-width: get-bp(tablet-portrait)) {
+        @content;
+    }
+}
+
+@mixin media-tablet-landscape-up {
+    @media (min-width: get-bp(tablet-landscape)) {
+        @content;
+    }
+}
+
+@mixin media-desktop-up {
+    @media (min-width: get-bp(desktop)) {
+        @content;
+    }
+}
+
+@mixin media-desktop-big-up {
+    @media (min-width: get-bp(desktop-big)) {
+        @content;
+    }
+}
+
+// mixins: and below
+
+@mixin media-tablet-portrait-below {
+    @media (max-width: get-bp(tablet-portrait) - 1px) {
+        @content;
+    }
+}
+
+@mixin media-tablet-landscape-below {
+    @media (max-width: get-bp(tablet-landscape) - 1px) {
+        @content;
+    }
+}
+
+@mixin media-desktop-below {
+    @media (max-width: get-bp(desktop) - 1px) {
+        @content;
+    }
+}
+
+@mixin media-desktop-big-below {
+    @media (max-width: get-bp(desktop-big) - 1px) {
+        @content;
+    }
+}
+
+// Classes
+
+/// Esconde elemento até `mobile`.
+.hide-mobile-only {
+    @include media-phone-only() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento a partir de `tablet-portrait`.
+.hide-tablet-portrait-up {
+    @include media-tablet-portrait-up() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento a partir de `tablet-landscape`.
+.hide-tablet-landscape-up {
+    @include media-tablet-landscape-up() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento a partir de `desktop`.
+.hide-desktop-up {
+    @include media-desktop-up() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento a partir de `desktop-big`.
+.hide-desktop-big-up {
+    @include media-desktop-big-up() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento até `tablet-portrait`.
+.hide-tablet-portrait-below {
+    @include media-tablet-portrait-below() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento até `tablet-landscape`.
+.hide-tablet-landscape-below {
+    @include media-tablet-landscape-below() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento até `desktop`.
+.hide-desktop-below {
+    @include media-desktop-below() {
+        display: none !important;
+    }
+}
+
+/// Esconde elemento até `desktop-big`.
+.hide-desktop-big-below {
+    @include media-desktop-big-below() {
+        display: none !important;
+    }
+}

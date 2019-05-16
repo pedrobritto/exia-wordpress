@@ -1,0 +1,15 @@
+$transition-timing-default: 0.2s;
+$transition-easing-default: ease;
+
+$transition-timing-metro: 0.7s;
+$transition-easing-metro: cubic-bezier(0.19, 1, 0.22, 1);
+
+$transition-timing: (
+    default: 0.2s,
+    metro: 0.7s
+);
+
+$transition-easing: (
+    default: ease,
+    metro: cubic-bezier(0.19, 1, 0.22, 1)
+);

@@ -1,0 +1,17 @@
+////
+/// @group Tools
+/// @author Pedro Britto
+////
+
+/// Retorna um breakpoint do map $breakpoints.
+///
+/// @param {string} $breakpoint-name Nome do breakpoint
+/// @return {string} Valor do breakpoint
+
+@function get-bp($breakpoint-name) {
+    @if map-has-key($breakpoints, $breakpoint-name) {
+        @return map-get($breakpoints, $breakpoint-name);
+    } @else {
+        @error 'O breakpoint ' + $color-name + ' não existe no map $breakpoints.';
+    }
+}

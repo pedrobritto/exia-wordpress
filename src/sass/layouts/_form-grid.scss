@@ -1,0 +1,132 @@
+// Form rows and cols
+@mixin form-col {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    @include media(750px) {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+// Form wrapper
+.l-form-wrapper--top {
+    margin-top: 2rem;
+}
+
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+// Form row
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include media(750px) {
+        flex-wrap: nowrap;
+    }
+}
+
+.form-row--reverse {
+    flex-direction: row-reverse;
+
+    @include media(750px) {
+        flex-direction: unset;
+    }
+}
+
+// Form col
+.form-col {
+    @include form-col;
+
+    &:first-of-type {
+        padding-left: 0;
+    }
+
+    &:last-of-type {
+        padding-right: 0;
+    }
+}
+
+.form-col--2 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((2 / 12) * 100%);
+        flex: 0 0 calc((2 / 12) * 100%);
+    }
+}
+
+.form-col--3 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((3 / 12) * 100%);
+        flex: 0 0 calc((3 / 12) * 100%);
+    }
+}
+
+.form-col--4 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((4 / 12) * 100%);
+        flex: 0 0 calc((4 / 12) * 100%);
+    }
+}
+
+.form-col--5 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((5 / 12) * 100%);
+        flex: 0 0 calc((5 / 12) * 100%);
+    }
+}
+
+.form-col--6 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((6 / 12) * 100%);
+        flex: 0 0 calc((6 / 12) * 100%);
+    }
+}
+
+.form-col--7 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((7 / 12) * 100%);
+        flex: 0 0 calc((7 / 12) * 100%);
+    }
+}
+
+.form-col--8 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((8 / 12) * 100%);
+        flex: 0 0 calc((8 / 12) * 100%);
+    }
+}
+
+.form-col--10 {
+    @include form-col;
+
+    @include media(750px) {
+        width: calc((10 / 12) * 100%);
+        flex: 0 0 calc((10 / 12) * 100%);
+    }
+}

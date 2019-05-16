@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// Vendors
+@import "vendors/vendors";
+
+// Configurações e variáveis
+@import "settings/*";
+
+// Funções e mixins
+@import "tools/functions/*";
+@import "tools/mixins/*";
+
+// Base
+@import "base/base";
+@import "base/font-import";
+@import "base/typography";
+
+// Layouts
+@import "layouts/*";
+
+// Components
+@import "components/*";
+
+// Modules
+@import "modules/*";
+
+// Classes utilitárias
+@import "utility/*";

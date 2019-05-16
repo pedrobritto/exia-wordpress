@@ -1,0 +1,19 @@
+/// Arredonda um número em px.
+/// Não faz nada se não for px.
+///
+/// @group Tools
+/// @param {Number} $value Número em px
+/// @author Pedro Britto
+/// @example
+///     round-pixel(10.1px)
+///     // 10px
+///     round-pixel(10.5px)
+///     // 11px
+
+@function round-pixel($value) {
+    @if unit($value) == "px" {
+        @return round($value);
+    }
+
+    @return $value;
+}

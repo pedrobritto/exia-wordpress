@@ -1,0 +1,20 @@
+////
+/// @group Tools
+/// @author Pedro Britto
+////
+
+/// Calcula o valor percentual de uma proporção numérica `$y / $x`,
+/// onde `$x >= $y`.
+///
+/// @param {Number} $x Número da proporção (deve ser `>= $y`)
+/// @param {Number} $y Número da proporção (deve ser `<= $x`)
+/// @returns {String} Valor percentual da proporção numérica
+/// @example
+///     calculate-responsive-ratio(4, 3)
+///     // 75%
+///     calculate-responsive-ratio(16, 9)
+///     // 56.25%
+
+@function calculate-responsive-ratio($x, $y) {
+    @return unquote(($y / $x) * 100 + "%");
+}

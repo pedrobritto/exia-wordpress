@@ -1,0 +1,89 @@
+// Burger parts
+//
+// (---) top    -> &::before
+// [---] middle -> &
+// (---) bottom -> &::after
+
+$burger-width: 2.5rem;
+$burger-height: 0.3rem;
+$burger-gutter: 0.4rem;
+$burger-color: #222;
+$burger-transition-duration: 0.3s;
+
+/// Burger
+///
+/// @param {Number} $width Largura de uma barra do burger
+/// @param {Number} $height Altura de uma barra do burger
+/// @param {Number} $gutter Distância entre barras do burger
+/// @param {Color} $color Cor das barras do burger
+/// @author Maicol Santos, Breno Soares
+/// @link https://github.com/maicolsantos/generator-skull/blob/master/generators/app/templates/sass/global/_burger.sass
+/// @group Outros
+
+@mixin burger(
+    $width: $burger-width,
+    $height: $burger-height,
+    $gutter: $burger-gutter,
+    $color: $burger-color,
+    $transition-duration: $burger-transition-duration
+) {
+    position: relative;
+    margin-top: $burger-height + $burger-gutter;
+    margin-bottom: $burger-height + $burger-gutter;
+    user-select: none;
+
+    // 1. Fixes jagged edges in Firefox, see issue #10.
+    &,
+    &::before,
+    &::after {
+        display: block;
+        width: $width;
+        height: $burger-height;
+        background-color: $color;
+        outline: 1px solid transparent; // 1
+        transition-property: background-color, transform;
+        transition-duration: $transition-duration;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: "";
+    }
+
+    &::before {
+        top: -($burger-height + $burger-gutter);
+    }
+
+    &::after {
+        top: $burger-height + $burger-gutter;
+    }
+}
+
+/// Burger animado
+///
+/// @param {Color|String} $color [auto] Nova cor do burger
+/// @author Maicol Santos, Breno Soares
+/// @link https://github.com/maicolsantos/generator-skull/blob/master/generators/app/templates/sass/global/_burger.sass
+/// @group Outros
+
+@mixin burger-to-cross($color: auto) {
+    & {
+        background-color: transparent;
+    }
+
+    @if $color != auto {
+        &::before,
+        &::after {
+            background-color: $color;
+        }
+    }
+
+    &::before {
+        transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    }
+
+    &::after {
+        transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+    }
+}

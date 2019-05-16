@@ -1,0 +1,39 @@
+// main search bar
+.main-search-bar {
+    @include fade("hide");
+    transform: translateY(-100%);
+    transition: 0.4s;
+
+    position: absolute;
+    top: var(--main-header-height);
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 0;
+    z-index: z(above) - 1;
+
+    &.is-active {
+        @include fade("show");
+        transform: translateY(0);
+        margin-bottom: 0;
+        z-index: z(above) - 1;
+    }
+}
+
+.main-search-bar__form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .main-search-bar__search {
+        margin: 0;
+    }
+}
+
+.main-search-bar__inner-container {
+    display: flex;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: 0;
+}

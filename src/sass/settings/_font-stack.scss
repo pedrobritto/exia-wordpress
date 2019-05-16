@@ -1,0 +1,30 @@
+/**
+ * Fontes customizadas
+ */
+$font-family-primary: "Roboto";
+$font-family-secondary: "Open Sans";
+
+/**
+ * Fontes de sistema (para fallback)
+ */
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-serif: serif;
+
+/**
+ * Font stack completo
+ */
+$font-family-body: #{$font-family-primary}, #{$font-family-sans-serif};
+$font-family-heading: #{$font-family-secondary}, #{$font-family-sans-serif};
+
+$font-families: (
+    heading: $font-family-heading,
+    body: $font-family-body
+);
+
+// Gera variáveis CSS globais a partir de $font-families
+:root {
+    @each $name, $value in $font-families {
+        --font-family-#{$name}: #{$value};
+    }
+}

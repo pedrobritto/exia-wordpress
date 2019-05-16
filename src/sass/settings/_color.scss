@@ -1,0 +1,47 @@
+// * Cores básicas *****
+$color-basics: (
+    dark: #333,
+    light: #fff,
+    grey: #686a6c,
+    grey-dark: #404246,
+    grey-light: #909296,
+    grey-lighter: #eaeef1,
+    primary: #36a3f7,
+    secondary: #353739,
+    text: #333539,
+    text-muted: #666,
+);
+
+// * Cores de estado *****
+$color-states: (
+    info: #36a3f7,
+    success: #34bfa3,
+    warning: #ffb822,
+    danger: #f4516c,
+);
+
+// * Cores de marcas *****
+$color-brands: (
+    facebook: #3b5998,
+    twitter: #1da1f2,
+    google-plus: #dd4b39,
+    linkedIn: #0077b5,
+    youtube: #ff0000,
+);
+
+// * Variações de cores básicas *****
+$color-basics-variations: (
+    primary-light: mix(#fff, map-get($color-basics, primary), 8%),
+    primary-lighter: mix(#fff, map-get($color-basics, primary), 15%),
+    primary-dark: mix(#000, map-get($color-basics, primary), 8%),
+    primary-darker: mix(#000, map-get($color-basics, primary), 15%),
+    secondary-light: mix(#fff, map-get($color-basics, secondary), 8%),
+    secondary-lighter: mix(#fff, map-get($color-basics, secondary), 15%),
+    secondary-dark: mix(#000, map-get($color-basics, secondary), 8%),
+    secondary-darker: mix(#000, map-get($color-basics, secondary), 15%),
+);
+
+// Junta todos os mapas de cores em um.
+$colors: map-merge($color-basics, $color-states);
+$colors: map-merge($colors, $color-brands);
+$colors: map-merge($colors, $color-basics-variations);

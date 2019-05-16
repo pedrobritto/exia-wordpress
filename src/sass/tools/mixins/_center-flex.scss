@@ -1,0 +1,42 @@
+/// Centraliza elementos filhos utilizando flexbox.
+/// Deve ser utilizada no elemento pai.
+///
+/// @example
+///      .elemento-pai {
+///          @include center-flex;
+///      }
+///
+/// @author Pedro Britto
+/// @group Posicionamento
+
+@mixin center-flex($position: null) {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+
+    @if $position == "vertical" {
+        align-items: center;
+    } @else if $position == "horizontal" {
+        justify-content: center;
+    } @else {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/// @group Posicionamento
+.center-flex {
+    @include center-flex();
+}
+
+/// @group Posicionamento
+.center-flex-vertical {
+    @include center-flex("vertical");
+}
+
+/// @group Posicionamento
+.center-flex-horizontal {
+    @include center-flex("horizontal");
+}

@@ -1,0 +1,31 @@
+@mixin form-validation($color: inherit) {
+    display: none;
+    color: $color;
+    font-size: $font-size-smaller;
+    line-height: 1.2;
+    margin-top: 0.5rem;
+}
+
+.form-validation {
+    @include form-validation();
+
+    &.is-visible {
+        display: block;
+    }
+}
+
+.form-validation-danger {
+    @include form-validation($color: get-color(danger));
+
+    &.is-visible {
+        display: block;
+    }
+}
+
+.form-validation-warning {
+    @include form-validation($color: get-color(warning));
+
+    &.is-visible {
+        display: block;
+    }
+}

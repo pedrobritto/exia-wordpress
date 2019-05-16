@@ -1,0 +1,25 @@
+.burger-icon-container {
+    cursor: pointer;
+    display: block;
+    padding: 0.5em;
+    background-color: transparent;
+    border: 0;
+
+    @include media(get-bp(desktop)) {
+        display: none;
+    }
+}
+
+.burger-icon {
+    @include burger();
+}
+
+.burger-icon.primary {
+    @include burger(get-color(primary));
+}
+
+.burger-icon-container.is-active {
+    .burger-icon {
+        @include burger-to-cross();
+    }
+}

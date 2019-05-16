@@ -1,0 +1,47 @@
+/// Centraliza elementos utilizando position: absolute.
+/// Deve ser utilizada na classe pai e filha.
+///
+/// @param {String} $position [both] Define orientação da centralização.
+///
+/// @example
+///      .elemento-pai {
+///          position: relative;
+///      }
+///
+///      .element {
+///          @include center(both);
+///      }
+///
+/// @link https://medium.com/@justinbrazeau/10-useful-sass-mixins-for-automation-833cdee9d69b
+/// @group Posicionamento
+
+@mixin center-absolute($position: both) {
+    position: absolute;
+
+    @if $position == vertical {
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if $position == horizontal {
+        left: 50%;
+        transform: translate(-50%);
+    } @else if $position == both {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/// @group Posicionamento
+.center-absolute {
+    @include center-absolute(both);
+}
+
+/// @group Posicionamento
+.center-absolute-vertical {
+    @include center-absolute(vertical);
+}
+
+/// @group Posicionamento
+.center-absolute-horizontal {
+    @include center-absolute(horizontal);
+}

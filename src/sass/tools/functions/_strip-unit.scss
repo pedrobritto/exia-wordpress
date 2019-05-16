@@ -1,0 +1,16 @@
+////
+/// @group Tools
+////
+
+/// Remove a unidade de um número/tamanho.
+///
+/// @param {Number} $number - Número quer terá unidade removida
+/// @return {Number} - Número sem unidade
+/// @link https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}

@@ -1,0 +1,35 @@
+.main-menu {
+    @include media(get-bp(desktop), max) {
+        display: none;
+    }
+
+    @include media(get-bp(desktop)) {
+        display: flex;
+    }
+
+    .main-menu__list {
+        display: flex;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    .main-menu__item,
+    .menu-item {
+        margin-right: 3.5rem;
+        transition: 0.2s;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.main-search-bar-toggle {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 2rem;
+}

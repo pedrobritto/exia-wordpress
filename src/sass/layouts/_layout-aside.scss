@@ -1,0 +1,38 @@
+@mixin layout-aside($break, $asideWidth) {
+    @include media($break) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .layout-aside__col-main {
+        @include media($break) {
+            width: calc(100% - #{$asideWidth});
+            padding-right: 10rem;
+        }
+    }
+
+    .layout-aside__col-aside {
+        margin-top: 3rem;
+
+        @include media($break) {
+            margin-top: 0;
+            width: $asideWidth;
+        }
+    }
+}
+
+.layout-aside {
+    @include layout-aside(get-bp(desktop), 50rem);
+}
+
+.layout-aside-sm {
+    @include layout-aside(get-bp(desktop), 35rem);
+}
+
+.layout-aside-md {
+    @include layout-aside(get-bp(desktop), 45rem);
+}
+
+.layout-aside-lg {
+    @include layout-aside(get-bp(desktop), 55rem);
+}

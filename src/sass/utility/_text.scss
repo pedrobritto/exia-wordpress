@@ -1,0 +1,55 @@
+// text.scss
+//
+// Classes que alteram font-weight, text-transform e text-align.
+
+// Weight
+.fw {
+    &-lr {
+        font-weight: 100;
+    }
+
+    &-l {
+        font-weight: 300;
+    }
+
+    &-n {
+        font-weight: normal;
+    }
+
+    &-b {
+        font-weight: bold;
+    }
+
+    &-br {
+        font-weight: 900;
+    }
+}
+
+// Transforms
+.tt-u {
+    text-transform: uppercase;
+}
+
+// Text align
+.ta {
+    &-l {
+        text-align: left;
+    }
+
+    &-r {
+        text-align: right;
+    }
+
+    &-c {
+        text-align: center;
+    }
+}
+
+.ff {
+    &-body {
+        font-family: $font-family-body;
+    }
+    &-heading {
+        font-family: $font-family-heading;
+    }
+}

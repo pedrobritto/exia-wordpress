@@ -1,0 +1,32 @@
+////
+/// @author Pedro Britto
+////
+
+/// Camadas de z-index pré-definidas.
+/// @group Tools
+
+$z-layers: (
+    "modal-box": 52,
+    "modal-bg": 51,
+    "modal": 50,
+    "menu": 40,
+    "above": 10,
+    "default": 0,
+    "below": -10,
+);
+
+/// Retorna um z-index definido no map `$z-layers`.
+/// @param {String} $layer Nome da camada
+/// @return {Number} Valor da camada
+/// @require $z-layers
+/// @see $z-layers
+/// @group Tools
+
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "Nenhuma camada chamada '#{$layer}' encontrada em no mapa $z-layers. Propriedade omitida.";
+        @return null;
+    }
+
+    @return map-get($z-layers, $layer);
+}

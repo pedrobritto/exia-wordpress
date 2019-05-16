@@ -1,0 +1,149 @@
+// spacing.scss
+//
+// Define espaçamentos padrão para margin e padding,
+// com modificadores –-smaller, –-small, --big e --bigger.
+
+// **
+// * Variáveis locais
+// *******************
+
+$base-spacing-smaller: $spacing-smaller;
+$base-spacing-small: $spacing-small;
+$base-spacing-default: $spacing-default;
+$base-spacing-big: $spacing-big;
+$base-spacing-bigger: $spacing-bigger;
+
+// **
+// * Mixins locais
+// *******************
+
+// * spacing *****
+
+@mixin spacing($spacing-type, $direction, $amount) {
+    @if $direction == "all" {
+        #{$spacing-type}: $amount;
+    } @else if $direction == "vertical" {
+        #{$spacing-type}-top: $amount;
+        #{$spacing-type}-bottom: $amount;
+    } @else if $direction == "horizontal" {
+        #{$spacing-type}-left: $amount;
+        #{$spacing-type}-right: $amount;
+    } @else if $direction == "top" {
+        #{$spacing-type}-top: $amount;
+    } @else if $direction == "bottom" {
+        #{$spacing-type}-bottom: $amount;
+    } @else if $direction == "left" {
+        #{$spacing-type}-left: $amount;
+    } @else if $direction == "right" {
+        #{$spacing-type}-right: $amount;
+    }
+}
+
+// * spacing-variation *****
+
+@mixin spacing-variation($spacing-type, $direction) {
+    &--smaller {
+        @include spacing($spacing-type, $direction, $base-spacing-smaller);
+    }
+
+    &--small {
+        @include spacing($spacing-type, $direction, $base-spacing-small);
+    }
+
+    &--big {
+        @include spacing($spacing-type, $direction, $base-spacing-big);
+    }
+
+    &--bigger {
+        @include spacing($spacing-type, $direction, $base-spacing-bigger);
+    }
+}
+
+// * spacing-full-structure *****
+
+@mixin spacing-full-structure($spacing-type) {
+    @include spacing($spacing-type, "all", $base-spacing-default);
+
+    &-vertical {
+        @include spacing($spacing-type, "vertical", $base-spacing-default);
+        @include spacing-variation($spacing-type, "vertical");
+    }
+
+    &-horizontal {
+        @include spacing($spacing-type, "horizontal", $base-spacing-default);
+        @include spacing-variation($spacing-type, "horizontal");
+    }
+
+    &-top {
+        @include spacing($spacing-type, "top", $base-spacing-default);
+        @include spacing-variation($spacing-type, "top");
+    }
+
+    &-bottom {
+        @include spacing($spacing-type, "bottom", $base-spacing-default);
+        @include spacing-variation($spacing-type, "bottom");
+    }
+
+    &-left {
+        @include spacing($spacing-type, "left", $base-spacing-default);
+        @include spacing-variation($spacing-type, "left");
+    }
+
+    &-right {
+        @include spacing($spacing-type, "right", $base-spacing-default);
+        @include spacing-variation($spacing-type, "right");
+    }
+}
+
+// **
+// * Padding
+// *******************
+
+.padding {
+    @include spacing-full-structure("padding");
+}
+
+// **
+// * Margin
+// *******************
+
+.margin {
+    @include spacing-full-structure("margin");
+}
+
+// No spacing
+@mixin no-spacing-helper($spacing-type, $direction: null) {
+    @if $direction == all or $direction == null {
+        .no-#{$spacing-type} {
+            #{$spacing-type}: 0;
+        }
+    } @else if $direction == vertical {
+        .no-#{$spacing-type}-#{$direction} {
+            #{$spacing-type}-top: 0;
+            #{$spacing-type}-bottom: 0;
+        }
+    } @else if $direction == horizontal {
+        .no-#{$spacing-type}-#{$direction} {
+            #{$spacing-type}-left: 0;
+            #{$spacing-type}-right: 0;
+        }
+    } @else {
+        .no-#{$spacing-type}-#{$direction} {
+            #{$spacing-type}-#{$direction}: 0;
+        }
+    }
+}
+
+$spacing-directions: vertical, horizontal, top, bottom, left, right;
+
+@include no-spacing-helper("margin");
+
+@each $item in $spacing-directions {
+    @include no-spacing-helper("margin", $item);
+}
+
+@include no-spacing-helper("padding");
+
+@each $item in $spacing-directions {
+    @include no-spacing-helper("padding", $item);
+}

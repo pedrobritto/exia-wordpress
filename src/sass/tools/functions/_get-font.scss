@@ -1,0 +1,17 @@
+////
+/// @group Tools
+/// @author Pedro Britto
+////
+
+/// Retorna uma cor do map $colors.
+///
+/// @param {String} $font-families Nome da variável da fonte
+/// @return {String} Valor da fonte-family
+
+@function get-font($font-family-name) {
+    @if map-has-key($font-families, $font-family-name) {
+        @return map-get($font-families, $font-family-name);
+    } @else {
+        @error 'A fonte ' + $font-family-name + ' não existe no map $font-families.';
+    }
+}

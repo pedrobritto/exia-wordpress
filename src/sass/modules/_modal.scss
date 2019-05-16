@@ -1,0 +1,119 @@
+// TODO: Criar container  espacífico para por html de modais.
+// TODO: Add opção de blur no body quando modal está aberto.
+
+// **
+// * Modal - Configuração
+// **
+
+// Modal
+$modal-transition: $transition-timing-default;
+$modal-padding: 4rem 1.5rem;
+
+// Modal BG
+$modal-bg-background-color: rgba(#000, 0.35);
+
+// Modal Box
+$modal-box-background-color: #fff;
+$modal-box-border-radius: map-get($border-radius, default);
+$modal-box-max-width: 100rem;
+
+// Modal Header
+$modal-header-background-color: transparent;
+$modal-header-color: get-color(text);
+$modal-header-padding: 1.5rem;
+$modal-header-font-size: 1.6rem;
+
+// Modal Header (separator)
+$modal-header-has-separator: true;
+$modal-header-separator-color: #eee;
+
+// Modal Body
+$modal-body-background-color: transparent;
+$modal-body-color: inherit;
+$modal-body-padding: 2rem;
+$modal-body-font-size: $font-size;
+
+// **
+// * Modal- Estilos
+// **
+
+.modal {
+    @include fade("hide");
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: z("modal");
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $modal-padding;
+    overflow: auto;
+    transition: $modal-transition;
+}
+
+.modal.is-visible {
+    @include fade("show");
+}
+
+.modal__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: z("modal-bg");
+    background-color: $modal-bg-background-color;
+}
+
+.modal__box {
+    position: relative;
+    z-index: z("modal-box");
+    background-color: $modal-box-background-color;
+    border-radius: $modal-box-border-radius;
+    max-width: $modal-box-max-width;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $modal-header-background-color;
+    padding: $modal-header-padding;
+    font-size: $modal-header-font-size;
+    line-height: 1.2;
+    color: $modal-header-color;
+    fill: $modal-header-color;
+
+    @if $modal-header-has-separator {
+        border-bottom: 0.1rem solid $modal-header-separator-color;
+    }
+}
+
+.modal__close {
+    width: 2.5rem;
+    margin-left: 2rem;
+    cursor: pointer;
+
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.modal__body {
+    background-color: $modal-body-background-color;
+    color: $modal-body-color;
+    padding: $modal-body-padding;
+    font-size: $modal-body-font-size;
+    overflow: auto;
+}
+
+.modal__content {
+    overflow: auto;
+    position: relative;
+}

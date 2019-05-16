@@ -1,0 +1,33 @@
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ok,
+div.wpcf7-mail-sent-ng {
+    background: #fff;
+    color: #222;
+    box-shadow: 0 0.4rem 2.5rem -1rem #000;
+    line-height: 1.2;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5rem 2rem 1.3rem;
+    letter-spacing: 0.02em;
+    border: 0;
+    border-left: 1rem solid;
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
+div.wpcf7-validation-errors {
+    border-left-color: #ffb822;
+}
+
+div.wpcf7-mail-sent-ng {
+    border-left-color: #f4516c;
+}
+
+div.wpcf7-mail-sent-ok {
+    border-left-color: #34bfa3;
+}
+
+span.wpcf7-not-valid-tip {
+    color: #f4516c;
+    font-size: 0.9em;
+    margin-top: 0.2em;
+}

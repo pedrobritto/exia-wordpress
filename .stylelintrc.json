@@ -1,0 +1,28 @@
+{
+    "defaultSeverity": "error",
+    "plugins": ["stylelint-order", "stylelint-scss"],
+    "extends": [
+        "stylelint-config-sass-guidelines",
+        "stylelint-config-prettier"
+    ],
+    "rules": {
+        "order/properties-alphabetical-order": null,
+        "max-nesting-depth": 3,
+        "selector-class-pattern": [
+            "^[a-z0-9\\-_]+$",
+            {
+                "message": "Selector should be written in lowercase with hyphens and underscore (selector-class-pattern)"
+            }
+        ]
+    },
+    "ignoreFiles": [
+        "**/*.js",
+        "**/*.json",
+        "**/*.ts",
+        "**/*.jsx",
+        "**/*.tsx",
+        "**/*.vue",
+        "**/*.html",
+        "**/*.sass"
+    ]
+}

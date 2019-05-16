@@ -1,0 +1,41 @@
+.pagination {
+    @include list-style-remove();
+    color: #999;
+    font-family: get-font(heading);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+    &.is-right {
+        justify-content: flex-end;
+    }
+
+    &.is-left {
+        justify-content: flex-start;
+    }
+
+    a,
+    span {
+        display: block;
+        padding: 1rem;
+    }
+
+    a:hover {
+        color: get-color(dark);
+    }
+
+    .next,
+    .prev {
+        color: get-color(primary);
+    }
+
+    .current {
+        color: #333;
+    }
+
+    .dots {
+        color: get-color(primary);
+        vertical-align: middle;
+        letter-spacing: 0.08em;
+    }
+}

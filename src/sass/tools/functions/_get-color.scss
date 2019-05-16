@@ -1,0 +1,17 @@
+////
+/// @group Tools
+/// @author Pedro Britto
+////
+
+/// Retorna uma cor do map $colors.
+///
+/// @param {String} $color-name Nome da variável da cor
+/// @return {String} Valor da cor
+
+@function get-color($color-name) {
+    @if map-has-key($colors, $color-name) {
+        @return map-get($colors, $color-name);
+    } @else {
+        @error 'A cor ' + $color-name + ' não existe no map $colors.';
+    }
+}

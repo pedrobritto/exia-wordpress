@@ -1,0 +1,74 @@
+// **
+// * Tab - Configuração
+// **
+
+$tab-active-color: get-color(primary);
+$tab-neutral-color: get-color(secondary);
+$tab-border-radius: 0.3rem;
+
+$tab-header-font-size: $font-size;
+$tab-header-color: get-color(light);
+$tab-header-item-spacing: 0.8rem;
+$tab-header-item-padding: 0.2rem 0.8rem;
+
+$tab-body-is-bordered: true;
+
+// **
+// * Tab - Estilos
+// **
+
+// .k-tab-container {}
+
+.tab-header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab-header-item {
+    margin-top: 0.5rem;
+    margin-right: $tab-header-item-spacing;
+    padding: $tab-header-item-padding;
+    border-radius: $tab-border-radius $tab-border-radius 0 0;
+
+    background-color: $tab-neutral-color;
+    color: $tab-header-color;
+    font-size: $tab-header-font-size;
+    transition: $transition-timing-default;
+
+    cursor: pointer;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    &:hover {
+        background-color: mix($tab-active-color, $tab-neutral-color, 60%);
+    }
+
+    &.is-active {
+        background-color: $tab-active-color;
+    }
+}
+
+.tab-content {
+    padding: 1.5rem;
+    position: relative;
+    top: -0.1rem;
+
+    @include media(get-bp(tablet-portrait)) {
+        padding: 2rem;
+    }
+
+    @if $tab-body-is-bordered {
+        border: 0.1rem solid $tab-active-color;
+        border-radius: 0 $tab-border-radius $tab-border-radius $tab-border-radius;
+    }
+}
+
+.tab-content-item[data-tab-id] {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}

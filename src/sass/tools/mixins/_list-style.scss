@@ -1,0 +1,38 @@
+/// Adiciona estilos padrão de lista
+/// @author Pedro Britto
+/// @group Exibição
+
+@mixin list-style-add() {
+    padding-left: unset;
+    list-style: unset;
+    margin-top: unset;
+    margin-bottom: unset;
+}
+
+/// Remove estilos padrão de lista
+/// @author Pedro Britto
+/// @group Exibição
+
+@mixin list-style-remove() {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/// Adiciona estilos padrão de lista
+/// @author Pedro Britto
+/// @group Exibição
+/// @see {mixin} list-style-add
+
+.list-style-add {
+    @include list-style-add();
+}
+/// Remove estilos padrão de lista
+/// @author Pedro Britto
+/// @group Exibição
+/// @see {mixin} list-style-remove
+
+.list-style-remove {
+    @include list-style-remove();
+}

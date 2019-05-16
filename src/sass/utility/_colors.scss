@@ -1,0 +1,17 @@
+// Gera classes .color-* e .bg-color-* a partir das cores no map $colors
+@each $name, $color in $colors {
+    .color-#{$name} {
+        color: $color;
+    }
+
+    .bg-color-#{$name} {
+        background-color: $color;
+    }
+}
+
+// Gera variáveis CSS globais a partir das cores no map $colors
+:root {
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+}

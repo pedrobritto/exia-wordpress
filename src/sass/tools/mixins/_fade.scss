@@ -1,0 +1,30 @@
+/// Esconde ou revela um elemento.
+///
+/// @param {String} $type (show|hide) Exibe ou esconde elemento
+/// @param {String|Null} $transition [null] Transição da exibição do elemento
+///
+/// @example
+///      .elemento {
+///          @include fade('hide');
+///      }
+///
+///      .elemento.is-active {
+///          @include fade('show');
+///      }
+///
+/// @author Pedro Britto
+/// @group Outros
+
+@mixin fade($type, $transition: null) {
+    @if $transition {
+        transition: $transition;
+    }
+
+    @if ($type== "hide") {
+        visibility: hidden;
+        opacity: 0;
+    } @else if ($type== "show") {
+        visibility: visible;
+        opacity: 1;
+    }
+}

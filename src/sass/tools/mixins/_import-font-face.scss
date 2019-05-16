@@ -1,0 +1,29 @@
+/// Importa webfonts/font-faces com facilidade.
+///
+/// @param {String} $font-name [normal] Nome da fonte
+/// @param {String} $font-file-path [normal] Caminho do arquivo da fonte, inclindo nome, excluindo extensão
+/// @param {Number|Keyword} $weight Peso da fonte
+/// @param {Number} $style Estilo da fonte
+///
+/// @example
+///     //Em base/_fonts.scss:
+///     @include import-font-face('Nome da fonte', '/caminho/da/fonte');
+///     @include import-font-face('gotham', '../fonts/gotham');
+///     @include import-font-face('gotham', '../fonts/gotham-bold-italic', bold, italic);
+///
+/// @link http://gillesbertaux.com/andy/doc/#mixin-font-face
+/// @group Outros
+
+@mixin import-font-face($font-name, $font-file-path, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: quote($font-name);
+        src: url($font-file-path+".eot");
+        src: url($font-file-path+".eot?#iefix") format("embedded-opentype"),
+            url($font-file-path+".woff2") format("woff2"),
+            url($font-file-path+".woff") format("woff"),
+            url($font-file-path+".ttf") format("truetype"),
+            url($font-file-path+".svg##{$font-name}") format("svg");
+        font-weight: $weight;
+        font-style: $style;
+    }
+}

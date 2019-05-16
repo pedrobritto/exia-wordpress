@@ -1,0 +1,11 @@
+@function get-transition-timing($timing-name) {
+    @if map-has-key($transition-timing, $timing-name) {
+        @return map-get($transition-timing, $timing-name);
+    }
+}
+
+@function get-transition-easing($easing-name) {
+    @if map-has-key($transition-easing, $easing-name) {
+        @return map-get($transition-easing, $easing-name);
+    }
+}

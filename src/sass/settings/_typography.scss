@@ -1,0 +1,40 @@
+// Font size
+$font-size: 1.8rem;
+$font-size-small: 1.5rem;
+$font-size-smaller: 1.3rem;
+
+// Line height
+$line-height-heading: 1.2;
+$line-height-body: 1.45;
+
+// Heading size
+$font-size-h1: $font-size * 2.4;
+$font-size-h2: $font-size * 2;
+$font-size-h3: $font-size * 1.6;
+$font-size-h4: $font-size * 1.4;
+$font-size-h5: $font-size * 1.2;
+$font-size-h6: $font-size * 1;
+
+// Body size
+$font-size-body: $font-size;
+
+// Display size
+$font-size-d1: $font-size * 4;
+$font-size-d2: $font-size * 3.5;
+$font-size-d3: $font-size * 3;
+
+// Proportional toggle
+$margin-heading-is-proportional: true;
+$margin-p-is-proportional: true;
+
+@if $margin-heading-is-proportional {
+    $margin-heading: 0 0 0.6em !global;
+} @else {
+    $margin-heading: 0 0 1rem !global;
+}
+
+@if $margin-p-is-proportional {
+    $margin-p: 0 0 1em !global;
+} @else {
+    $margin-p: 0 0 1rem !global;
+}

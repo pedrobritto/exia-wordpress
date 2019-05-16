@@ -1,0 +1,20 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jquery": true,
+        "jest": true
+    },
+    "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "rules": {
+        "linebreak-style": ["error", "unix"],
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "prettier/prettier": ["error", { "trailingComma": "es5" }]
+    }
+}

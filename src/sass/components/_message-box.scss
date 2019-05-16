@@ -1,0 +1,64 @@
+$message-box-color: #555;
+$message-box-padding: 0.8rem 1.5rem;
+$message-box-border-size: 0.1rem;
+$message-box-border-style: solid;
+$message-box-border-radius: 0.4rem;
+$message-box-margin: 0 0 1rem;
+
+$message-box-font-size: $font-size;
+$message-box-font-size-small: $font-size - 0.3rem;
+
+@mixin message-box-base(
+    $font-size: $message-box-font-size,
+    $border-radius: $message-box-border-radius,
+    $padding: $message-box-padding,
+    $margin: $message-box-margin
+) {
+    font-size: $font-size;
+    border-radius: $border-radius;
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin message-box(
+    $color: #555,
+    $border-size: $message-box-border-size,
+    $border-style: $message-box-border-style
+) {
+    color: mix(#000, $color, 25%);
+    background-color: mix(#fff, $color, 87%);
+    border: $border-size $border-style mix(#fff, $color, 50%);
+}
+
+.message-box {
+    @include message-box-base();
+    @include message-box();
+}
+
+.message-box.primary {
+    @include message-box(get-color(primary));
+}
+
+.message-box.secondary {
+    @include message-box(get-color(secondary));
+}
+
+.message-box.info {
+    @include message-box(get-color(info));
+}
+
+.message-box.success {
+    @include message-box(get-color(success));
+}
+
+.message-box.warning {
+    @include message-box(get-color(warning));
+}
+
+.message-box.danger {
+    @include message-box(get-color(danger));
+}
+
+.message-box.small {
+    font-size: $message-box-font-size-small;
+}

@@ -1,0 +1,22 @@
+// .accordion-listing {}
+
+.js-accordion {
+    background-color: #eee;
+    border: 0.1rem solid #ccc;
+
+    border-radius: 0.4rem;
+    margin-bottom: 0.3rem;
+    padding: 1rem;
+}
+
+.js-accordion-header {
+    cursor: pointer;
+}
+
+.js-accordion-content {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}

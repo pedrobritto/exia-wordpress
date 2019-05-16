@@ -1,0 +1,15 @@
+/// Cria estilos para um container.
+///
+/// @param {String} $width [120rem] Largura máxima do container
+/// @param {String} $padding [0 2rem] Padding do container
+///
+/// @author Pedro Britto
+/// @group Layout
+
+@mixin container($width: 120rem, $padding: 0 2rem) {
+    max-width: $width;
+    padding: $padding;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}

@@ -1,0 +1,276 @@
+// Padding
+$button-padding: 1.2rem 1.4rem;
+$button-padding-big: 1.4rem 1.8rem;
+$button-padding-small: 0.7rem 0.8rem;
+
+// Border radius
+$button-border-radius: 0.3rem;
+$button-border-radius-big: 0.4rem;
+
+// Border
+$button-border-width: 0.1rem;
+
+// Font size
+$button-font-size: $font-size;
+$button-font-size-small: strip-unit($button-font-size) - 0.3rem;
+$button-font-size-big: strip-unit($button-font-size) + 0.2rem;
+
+// Transition
+$button-transition: $transition-timing-default;
+
+@mixin button-base(
+    $padding: $button-padding,
+    $border-radius: $button-border-radius,
+    $border-width: $button-border-width,
+    $transition: $button-transition
+) {
+    display: inline-block;
+    padding: $padding;
+    appearance: none;
+    line-height: 1;
+    border: $border-width solid transparent;
+    border-radius: $border-radius;
+    background-color: transparent;
+    transition: $transition;
+    cursor: pointer;
+    color: inherit;
+
+    font-family: inherit;
+    font-size: $button-font-size;
+}
+
+@mixin button-solid($color: #111, $background-color: #ddd) {
+    color: $color;
+    background-color: $background-color;
+
+    &:hover {
+        background-color: mix(#000, $background-color, 10%);
+    }
+
+    &:active,
+    &:focus {
+        background-color: mix(#000, $background-color, 15%);
+        outline: 0;
+        box-shadow: 0 0 0 0.3rem transparentize($background-color, 0.6);
+    }
+
+    // States
+    &.is-active {
+        background-color: mix(#000, $background-color, 15%);
+    }
+
+    &[disabled],
+    .is-disabled {
+        background-color: mix(#fff, $background-color, 30%);
+        color: mix(#fff, $color, 30%);
+        cursor: not-allowed;
+    }
+}
+
+@mixin button-outline($color: #111, $hover-color: #fff, $background-color: transparent) {
+    color: $color;
+    background-color: $background-color;
+    border: $button-border-width solid $color;
+
+    &:hover {
+        background-color: $color;
+        color: $hover-color;
+    }
+
+    &:active,
+    &:focus {
+        color: #fff;
+        border-color: mix(#000, $color, 10%);
+        background-color: mix(#000, $color, 10%);
+        outline: 0;
+        box-shadow: 0 0 0 0.3rem transparentize($color, 0.6);
+    }
+
+    // States
+    &.button-active {
+        background-color: mix(#000, $background-color, 15%);
+    }
+
+    &[disabled],
+    .is-disabled {
+        background-color: mix(#fff, $background-color, 50%);
+        color: mix(#fff, $color, 30%);
+    }
+}
+
+// ===========
+// Base Button
+// ===========
+.button {
+    @include button-base();
+
+    &.clean {
+        padding: 0;
+    }
+}
+
+// ==============
+// Regular Button
+// ==============
+.button {
+    &.light {
+        @include button-solid($background-color: get-color(light));
+    }
+
+    &.dark {
+        @include button-solid($background-color: get-color(dark), $color: get-color(light));
+    }
+
+    &.primary {
+        @include button-solid($background-color: get-color(primary), $color: #fff);
+    }
+
+    &.secondary {
+        @include button-solid($background-color: get-color(secondary), $color: #fff);
+    }
+
+    &.info {
+        @include button-solid($background-color: get-color(info));
+    }
+
+    &.success {
+        @include button-solid($background-color: get-color(success));
+    }
+
+    &.warning {
+        @include button-solid($background-color: get-color(warning));
+    }
+
+    &.danger {
+        @include button-solid($background-color: get-color(danger));
+    }
+}
+
+// ==============
+// Outline Button
+// ==============
+.button.outline {
+    @include button-outline();
+
+    &.light {
+        @include button-outline($color: get-color(light), $hover-color: #111);
+    }
+
+    &.dark {
+        @include button-outline($color: get-color(dark));
+    }
+
+    &.primary {
+        @include button-outline($color: get-color(primary));
+    }
+
+    &.secondary {
+        @include button-outline($color: get-color(secondary));
+    }
+
+    &.info {
+        @include button-outline($color: get-color(info));
+    }
+
+    &.success {
+        @include button-outline($color: get-color(success));
+    }
+
+    &.warning {
+        @include button-outline($color: get-color(warning));
+    }
+
+    &.danger {
+        @include button-outline($color: get-color(danger));
+    }
+}
+
+// ====
+// Size
+// ====
+.button.small {
+    font-size: $button-font-size-small;
+    padding: $button-padding-small;
+}
+
+.button.big {
+    font-size: $button-font-size-big;
+    padding: $button-padding-big;
+
+    border-radius: $button-border-radius-big;
+}
+
+.button.block {
+    display: block;
+    width: 100%;
+
+    & + & {
+        margin-top: 0.5rem;
+    }
+}
+
+.button.uppercase {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 0.07em;
+}
+
+// ============
+// Button Group
+// ============
+.button-group {
+    display: flex;
+
+    .button {
+        border-radius: 0;
+
+        &:first-of-type {
+            border-top-left-radius: $button-border-radius;
+            border-bottom-left-radius: $button-border-radius;
+        }
+
+        &:last-of-type {
+            border-top-right-radius: $button-border-radius;
+            border-bottom-right-radius: $button-border-radius;
+        }
+    }
+
+    .button.outline {
+        border-right-width: 0;
+
+        &:last-of-type {
+            border-right-width: $button-border-width;
+        }
+    }
+}
+
+.button-group-vertical {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .button {
+        width: 100%;
+        border-radius: 0;
+
+        &:first-of-type {
+            border-top-left-radius: $button-border-radius;
+            border-top-right-radius: $button-border-radius;
+        }
+
+        &:last-of-type {
+            border-bottom-left-radius: $button-border-radius;
+            border-bottom-right-radius: $button-border-radius;
+        }
+    }
+
+    .button.outline {
+        border-bottom-width: 0;
+
+        &:last-of-type {
+            border-bottom-width: $button-border-width;
+        }
+    }
+}

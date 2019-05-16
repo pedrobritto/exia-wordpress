@@ -1,0 +1,19 @@
+.post-content {
+    p {
+        font-size: $font-size - 0.2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $font-family-heading;
+        margin-top: 2.5rem;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+}
