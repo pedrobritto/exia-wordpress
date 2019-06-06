@@ -4,13 +4,6 @@ import LazyLoad from "vanilla-lazyload";
 import MenuToggle from "./modules/MenuToggle";
 import SmoothScroll from "smooth-scroll/dist/smooth-scroll";
 
-// Less used modules
-//
-// import accordion from "./modules/accordion";
-// import ExiaModal from "./modules/ExiaModal";
-// import ExiaTabs from "./modules/ExiaTabs";
-// import slides from "./modules/slides";
-
 export default () => {
     burger();
 
@@ -35,11 +28,4 @@ export default () => {
         activeBodyClass: "mobile-menu-is-open",
         breakpointToHide: 1200,
     });
-
-    // Less used modules
-    //
-    // accordion();
-    // new ExiaModal();
-    // new ExiaTabs();
-    // slides();
 };
