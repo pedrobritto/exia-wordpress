@@ -117,3 +117,7 @@ $modal-body-font-size: $font-size;
     overflow: auto;
     position: relative;
 }
+
+[data-modal-open] {
+    cursor: pointer;
+}
