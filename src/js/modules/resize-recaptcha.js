@@ -7,7 +7,7 @@
  * jQuery to JavaScript
  * @author pedrobritto
  *
- * @version 0.2.0
+ * @version 0.3.0
  */
 
 export default () => {
@@ -18,7 +18,7 @@ export default () => {
         recaptchas.forEach(item => {
             recaptchaCollection.push({
                 recaptchaEl: item,
-                recaptchaWidth: item.clientWidth,
+                recaptchaWidth: item.querySelector("div").offsetWidth,
                 recaptchaParentWidth: item.parentElement.offsetWidth,
             });
         });
