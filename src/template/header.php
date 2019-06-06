@@ -38,8 +38,8 @@
     );
 ?>
 
-<header class="main-header-bundle js-get-main-header-height">
-    <div class="main-header">
+<header class="main-header-bundle">
+    <div class="main-header js-get-main-header-height">
         <div class="container">
             <h1 class="main-header__logo-container">
                 <span class="hide-text">Exia</span>
@@ -89,6 +89,6 @@
     </div>
 </header>
 
-<div class="main-header-clearance"></div>
+<div class="clearance --main-header"></div>
 
 <?php include 'template-parts/main-menu-mobile.php'; ?>
